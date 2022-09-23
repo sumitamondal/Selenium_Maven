@@ -3,6 +3,9 @@ package testcases;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.LogStatus;
+
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +22,8 @@ public class SimplilearnLoginTest extends BaseClass{
 	@Test
 	public void Test1() {
 	
+		test.log(LogStatus.INFO, "Test1 started");
+		
 		LoginPage lp=new LoginPage(driver);
 		lp.Login("abc@xyz.com","Test@1234" );
 		
@@ -43,12 +48,16 @@ public class SimplilearnLoginTest extends BaseClass{
 		@Parameters({"uname","pwd"})
 		public void Test2(String UserName, String Password) {
 		
+			test.log(LogStatus.INFO, "Test2 started");
+			
 			LoginPage lp=new LoginPage(driver);
 			lp.Login(UserName,Password );
 		
 	}
 		@Test
 		public void Test3() {
+			
+			test.log(LogStatus.INFO, "Test3 started");
 			
 			String UserName = sheet.getRow(1).getCell(0).getStringCellValue();
 	        String Password = sheet.getRow(1).getCell(1).getStringCellValue();
